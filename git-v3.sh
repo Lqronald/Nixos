@@ -1,10 +1,7 @@
 #!/bin/bash
-#set -e
-##################################################################################################################
-#
-#   DO NOT JUST RUN THIS. EXAMINE AND JUDGE. RUN AT YOUR OWN RISK.
-#
-##################################################################################################################
+
+echo "Deleting the work folder if one exists"
+[ -d work ] && rm -rf work
 
 # checking if I have the latest files from github
 echo "Checking for newer files online first"
