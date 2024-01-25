@@ -1,0 +1,50 @@
+
+Rebuild config
+    nixos-rebuild switch
+
+Home Manager installeren
+    sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
+    sudo nix-channel --update
+
+  in config:
+    imports = [ <home-manager/nixos> ];
+
+    users.users.ronald.isNormalUser = true;
+    home-manager.users.ronald = { pkgs, ... }: {
+    home.packages = with pkgs; [ dolphin vim ];
+    programs.bash.enable = true;
+    };
+
+
+Rebuild home manager
+    home-manager switch
+
+Alias
+    environment.shellAliases = {
+        "rebuild" = "sudo nixos-rebuild switch";
+    };
+     environment.shellAliases = {
+    "garbage" = "sudo nix-collect-garbage -d";
+    };
+
+    environment.shellAliases = {
+    "conf" = "sudo vim /etc/nixos/configuration.nix";
+    };
+
+    environment.shellAliases = {
+    "chanup" = "sudo nix-channel --update";
+    };
+
+    environment.shellAliases = {
+    "nixup" = "sudo nixos-rebuild --upgrade";
+
+Opkuisen oude versies
+    sudo nix-collect-garbage --delete-older-than 5d
+    nixos-rebuild switch
+
+Nakijken opstarttijden
+    systemd-analyze
+    systemd-analyze blame
+
+NTFS
+    boot.supportedFilesystems = [ "ntfs" ];
