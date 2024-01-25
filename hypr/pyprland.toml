@@ -1,0 +1,27 @@
+ 
+[pyprland]
+plugins = ["scratchpads"]
+
+
+[scratchpads.term]
+command = "alacritty --class scratchpad"
+class = "scratchpad"
+animation = "fromTop"
+margin = 50
+unfocus = "hide"
+#size = "60% 50%"
+#max_size = "1920x 80%"
+
+#[scratchpads.dolphin]
+#command = "dolphin --class dolphscratch"
+#class = "dolphscratch"
+#animation = "fromTop"
+#margin = 50
+#unfocus = "hide"
+
+[scratchpads.thunar]
+command = "thunar --class tunascratch"
+class = "tunascratch"
+animation = "fromTop"
+margin = 50
+unfocus = "hide"
